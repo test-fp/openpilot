@@ -170,7 +170,8 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
       p.setPen(QPen(whiteColor(75), 6)); // Default pen
       // Consider trafficMode pen color: p.setPen(QPen(trafficMode ? redColor() : whiteColor(75), 6));
       p.setBrush(blackColor(166)); //
-      drawRoundedRect(p, max_speed_headless_rect, 32, 32, 32, 32); // Consistent radius
+      //drawRoundedRect(p, max_speed_headless_rect, 32, 32, 32, 32); // Consistent radius
+      drawRoundedRect(max_speed_headless_rect, 32, 32, 32, 32); // Consistent radius
 
       // Determine colors for MAX speed text (similar to original logic)
       QColor max_color = QColor(0x80, 0xd8, 0xa6, 0xff); //
@@ -217,9 +218,11 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
         // Draw background for US speed limit sign
         p.setPen(Qt::NoPen); //
         p.setBrush(whiteColor()); //
-        drawRoundedRect(p, speed_limit_headless_rect, 24, 24); //
+        //drawRoundedRect(p, speed_limit_headless_rect, 24, 24); //
+        drawRoundedRect(speed_limit_headless_rect, 24, 24); //
         p.setPen(QPen(blackColor(), 6)); //
-        drawRoundedRect(p, speed_limit_headless_rect.adjusted(9, 9, -9, -9), 16, 16); //
+        //drawRoundedRect(p, speed_limit_headless_rect.adjusted(9, 9, -9, -9), 16, 16); //
+        drawRoundedRect(speed_limit_headless_rect.adjusted(9, 9, -9, -9), 16, 16); //
 
         // Draw US speed limit text (adjust y-offsets for the new rect)
         p.save();
@@ -300,7 +303,8 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
         p.setPen(QPen(whiteColor(75), 6));
       }
       p.setBrush(blackColor(166));
-      drawRoundedRect(p, set_speed_rect, top_radius, top_radius, bottom_radius, bottom_radius);
+      //drawRoundedRect(p, set_speed_rect, top_radius, top_radius, bottom_radius, bottom_radius);
+      drawRoundedRect(set_speed_rect, top_radius, top_radius, bottom_radius, bottom_radius);
   
       QColor max_color = QColor(0x80, 0xd8, 0xa6, 0xff);
       QColor set_speed_color = whiteColor();
