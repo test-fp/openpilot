@@ -143,6 +143,7 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
   const int eu_sign_size = 176;
 
   const QSize default_size = {172, 204};
+  //////////////////////////////////////////////////////////////////////////////////////////virtical//////////////////
   QSize set_speed_size = default_size;
   if (is_metric || has_eu_speed_limit) set_speed_size.rwidth() = 200;
   if (has_us_speed_limit && speedLimitStr.size() >= 3) set_speed_size.rwidth() = 223;
@@ -363,7 +364,9 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
   }
 
   p.restore();
-
+  
+//////////////////////////////////////////////////////vertical//////////////////////////////////////
+  
   // current speed
   if (!(bigMapOpen || hideSpeed)) {
     if (standstillDuration > 1) {
