@@ -129,6 +129,7 @@ private:
   bool cscStatus;
   bool compass;
   bool experimentalMode;
+  bool headLessMode;
   bool hideMapIcon;
   bool hideMaxSpeed;
   bool hideSpeed;
