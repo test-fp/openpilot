@@ -163,7 +163,8 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
     if (is_metric) max_speed_headless_size.setWidth(200); //
     // else if (has_us_speed_limit && speedLimitStr.size() >=3 ) max_speed_headless_size.setWidth(223); // Might not be relevant if speedLimit is separate
 
-    max_speed_headless_rect.setRect(60, common_y_headless, max_speed_headless_size.width(), max_speed_headless_size.height());
+    // Shift MAX speed to the right by 120  (it was 60 before)
+    max_speed_headless_rect.setRect(120, common_y_headless, max_speed_headless_size.width(), max_speed_headless_size.height());
 
     if (!hideMaxSpeed) { //
       // Draw background for MAX speed
@@ -552,9 +553,17 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
       drawText(p, rect().center().x(), 290, QString("%1 seconds").arg(seconds));
     } else {
       p.setFont(InterFont(176, QFont::Bold));
-      drawText(p, rect().center().x(), 210, speedStr);
-      p.setFont(InterFont(66));
-      drawText(p, rect().center().x(), 290, speedUnit, 200);
+      if ( 1=1 ) {
+        //qreal posX = max_speed_headless_rect.x() + max_speed_headless_rect.width() + 25;
+        //drawText(p, rect().center().x(), 210, speedStr);
+        drawText(p,(max_speed_headless_rect.x() + (max_speed_headless_rect.width() * 2) + 25) , 210, speedStr);
+        p.setFont(InterFont(66));
+        drawText(p,(max_speed_headless_rect.x() + (max_speed_headless_rect.width() * 2) + 25) , 290, speedUnit, 200);
+      } else {
+        drawText(p, rect().center().x(), 210, speedStr);
+        p.setFont(InterFont(66));
+        drawText(p, rect().center().x(), 290, speedUnit, 200);
+      }
     }
   }
 
