@@ -1141,7 +1141,7 @@ void AnnotatedCameraWidget::updateSignals() {
 void AnnotatedCameraWidget::initializeFrogPilotWidgets() {
   distance_btn = new DistanceButton(this);
   if (this->headLessMode) {
-    main_layout->addWidget(distance_btn, 0, Qt::AlignTop | Qt::AlignLeft);
+    main_layout->addWidget(distance_btn, 0, Qt::AlignCenter | Qt::AlignLeft);
   } else {
     main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
   }
