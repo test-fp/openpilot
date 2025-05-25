@@ -1140,7 +1140,12 @@ void AnnotatedCameraWidget::updateSignals() {
 
 void AnnotatedCameraWidget::initializeFrogPilotWidgets() {
   distance_btn = new DistanceButton(this);
-  main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
+  if (this->headLessMode) {
+    main_layout->addWidget(distance_btn, 0, Qt::AlignCenter | Qt::AlignLeft);
+  } else {
+    main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
+  }
+  //main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
 
   chillModeIcon = loadPixmap("../frogpilot/assets/other_images/chill_mode_icon.png", {img_size / 2, img_size / 2});
   curveIcon = loadPixmap("../frogpilot/assets/other_images/curve_icon.png", {img_size / 2, img_size / 2});
