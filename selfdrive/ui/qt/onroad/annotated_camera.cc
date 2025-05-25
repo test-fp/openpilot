@@ -164,7 +164,7 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
     // else if (has_us_speed_limit && speedLimitStr.size() >=3 ) max_speed_headless_size.setWidth(223); // Might not be relevant if speedLimit is separate
 
     // Shift MAX speed to the right by 120  (it was 60 before)
-    max_speed_headless_rect.setRect(rect().width() * 0.5, common_y_headless, max_speed_headless_size.width(), max_speed_headless_size.height());
+    max_speed_headless_rect.setRect(rect().width() * 0.65, common_y_headless, max_speed_headless_size.width(), max_speed_headless_size.height());
 
     if (!hideMaxSpeed) { //
       // Draw background for MAX speed
@@ -555,9 +555,9 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
       p.setFont(InterFont(176, QFont::Bold));
       if (this->headLessMode) {
         //drawText(p, rect().center().x() * 1.5, 210 * 0.8, speedStr);
-        drawText(p, rect().width() * 0.7, 210 * 0.8, speedStr);
+        drawText(p, rect().width() * 0.5, 210 * 0.8, speedStr);
         p.setFont(InterFont(66));
-        drawText(p, rect().width() * 0.7, 290 * 0.8, speedUnit, 200);
+        drawText(p, rect().width() * 0.5, 290 * 0.8, speedUnit, 200);
         //drawText(p, rect().center().x() * 1.5, 290 * 0.8, speedUnit, 200);
       } else {
         drawText(p, rect().center().x(), 210, speedStr);
