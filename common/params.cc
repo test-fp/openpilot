@@ -496,6 +496,7 @@ std::unordered_map<std::string, uint32_t> keys = {
     {"StandardJerkSpeedDecrease", PERSISTENT},
     {"StandardPersonalityProfile", PERSISTENT},
     {"StandbyMode", PERSISTENT},
+    {"HeadlessMode", PERSISTENT},
     {"StartupMessageBottom", PERSISTENT},
     {"StartupMessageTop", PERSISTENT},
     {"StaticPedalsOnUI", PERSISTENT},
