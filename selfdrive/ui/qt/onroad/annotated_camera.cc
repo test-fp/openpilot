@@ -553,12 +553,10 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
       drawText(p, rect().center().x(), 290, QString("%1 seconds").arg(seconds));
     } else {
       p.setFont(InterFont(176, QFont::Bold));
-      if ( 1=1 ) {
-        //qreal posX = max_speed_headless_rect.x() + max_speed_headless_rect.width() + 25;
-        //drawText(p, rect().center().x(), 210, speedStr);
-        drawText(p,(max_speed_headless_rect.x() + (max_speed_headless_rect.width() * 2) + 25) , 210, speedStr);
+      if (this->headLessMode) {
+        drawText(p,(max_speed_headless_rect.x() + max_speed_headless_rect.width() + speed_limit_headless_rect.width() + 25) , 210, speedStr);
         p.setFont(InterFont(66));
-        drawText(p,(max_speed_headless_rect.x() + (max_speed_headless_rect.width() * 2) + 25) , 290, speedUnit, 200);
+        drawText(p,(max_speed_headless_rect.x() + max_speed_headless_rect.width() + speed_limit_headless_rect.width() + 25) , 290, speedUnit, 200);
       } else {
         drawText(p, rect().center().x(), 210, speedStr);
         p.setFont(InterFont(66));
