@@ -164,7 +164,7 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
     // else if (has_us_speed_limit && speedLimitStr.size() >=3 ) max_speed_headless_size.setWidth(223); // Might not be relevant if speedLimit is separate
 
     // Shift MAX speed to the right by 120  (it was 60 before)
-    max_speed_headless_rect.setRect(rect().width() * 0.6, common_y_headless, max_speed_headless_size.width(), max_speed_headless_size.height());
+    max_speed_headless_rect.setRect(rect().width() * 0.55, common_y_headless, max_speed_headless_size.width(), max_speed_headless_size.height());
 
     if (!hideMaxSpeed) { //
       // Draw background for MAX speed
@@ -756,7 +756,7 @@ void AnnotatedCameraWidget::drawLaneLines(QPainter &painter, const UIState *s, f
         painter.setFont(InterFont(30, QFont::DemiBold));
         painter.setPen(Qt::white);
 
-        QString text = isBlindSpot ? tr("Vehicle in blind spot") : QString::number(laneWidth * distanceConversion, 'f', 2) + leadDistanceUnit;
+        QString text = isBlindSpot ? tr("Vehicle in blind spot") : QString::number(laneWidth * eConversion, 'f', 2) + leadeUnit;
         painter.drawText(lane.boundingRect(), Qt::AlignCenter, text);
         painter.setPen(Qt::NoPen);
       }
@@ -786,7 +786,7 @@ void AnnotatedCameraWidget::drawLaneLines(QPainter &painter, const UIState *s, f
     setPathEdgeColors(pe, bg_colors[STATUS_EXPERIMENTAL_MODE_ACTIVE]);
   } else if (trafficMode) {
     setPathEdgeColors(pe, bg_colors[STATUS_TRAFFIC_MODE_ACTIVE]);
-  } else if (modelLength > scene.upcoming_maneuver_distance && scene.upcoming_maneuver_distance > 1) {
+  } else if (modelLength > scene.upcoming_maneuver_e && scene.upcoming_maneuver_e > 1) {
     setPathEdgeColors(pe, bg_colors[STATUS_NAVIGATION_ACTIVE]);
   } else if (!useStockColors) {
     setPathEdgeColors(pe, scene.path_edges_color);
@@ -819,7 +819,7 @@ void AnnotatedCameraWidget::drawDriverState(QPainter &painter, const UIState *s)
   int x = rightHandDM ? width() - offset : offset;
   if (rightHandDM && map_settings_btn->isEnabled() && !hideMapIcon) {
     x -= 250;
-  } else if (onroadDistanceButton) {
+  } else if (onroadeButton) {
     x += 250;
   }
   int y = height() - offset;
@@ -905,15 +905,15 @@ void AnnotatedCameraWidget::drawLead(QPainter &painter, const cereal::RadarState
     QString text;
     if (adjacent) {
       text = QString("%1 %2 | %3 %4")
-              .arg(qRound(d_rel * distanceConversion))
-              .arg(leadDistanceUnit)
+              .arg(qRound(d_rel * eConversion))
+              .arg(leadeUnit)
               .arg(qRound(lead_speed * speedConversionMetrics))
               .arg(leadSpeedUnit);
     } else {
       text = QString("%1 %2 (%3) | %4 %5 | %6%7")
-              .arg(qRound(d_rel * distanceConversion))
-              .arg(leadDistanceUnit)
-              .arg(QString("Desired: %1").arg(desiredFollow * distanceConversion))
+              .arg(qRound(d_rel * eConversion))
+              .arg(leadeUnit)
+              .arg(QString("Desired: %1").arg(desiredFollow * eConversion))
               .arg(qRound(lead_speed * speedConversionMetrics))
               .arg(leadSpeedUnit)
               .arg(QString::number(std::max(d_rel / std::max(v_ego, 1.0f), 1.0f), 'f', 2))
@@ -1073,7 +1073,7 @@ void AnnotatedCameraWidget::showEvent(QShowEvent *event) {
   prev_draw_t = millis_since_boot();
 
   // FrogPilot variables
-  distance_btn->updateIcon();
+  e_btn->updateIcon();
   experimental_btn->updateIcon();
   updateSignals();
 }
@@ -1141,7 +1141,7 @@ void AnnotatedCameraWidget::updateSignals() {
 void AnnotatedCameraWidget::initializeFrogPilotWidgets() {
   distance_btn = new DistanceButton(this);
   if (this->headLessMode) {
-    main_layout->addWidget(distance_btn, 0, Qt::AlignCenter | Qt::AlignLeft);
+    main_layout->addWidget(distance_btn, 0, Qt::AlignTop | Qt::AlignLeft);
   } else {
     main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
   }
