@@ -38,7 +38,7 @@ private:
   std::set<QString> developerWidgetKeys = {"AdjacentLeadsUI", "RadarTracksUI", "ShowStoppingPoint"};
   std::set<QString> modelUIKeys = {"DynamicPathWidth", "LaneLinesWidth", "PathEdgeWidth", "PathWidth", "RoadEdgesWidth", "UnlimitedLength"};
   std::set<QString> navigationUIKeys = {"BigMap", "MapStyle", "RoadNameUI", "ShowSpeedLimits", "UseVienna"};
-  std::set<QString> qualityOfLifeKeys = {"CameraView", "DriverCamera", "StandbyMode", "StoppedTimer"};
+  std::set<QString> qualityOfLifeKeys = {"CameraView", "DriverCamera", "StandbyMode", "HeadlessMode", "StoppedTimer"};
 
   std::set<QString> parentKeys;
 
