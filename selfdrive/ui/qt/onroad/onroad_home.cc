@@ -118,7 +118,7 @@ void OnroadWindow::updateState(const UIState &s) {
     shouldUpdate = true;
   }
 
-  if (shouldUpdate && !this->headlessMode) {
+  if (shouldUpdate && !s.scene.headless_mode) {
     update();
   }
 }
