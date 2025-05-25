@@ -203,6 +203,7 @@ typedef struct UIScene {
   bool speed_limit_sources;
   bool speed_limit_vienna;
   bool standby_mode;
+  bool headless_mode;
   bool standstill;
   bool static_pedals_on_ui;
   bool steering_metrics;
