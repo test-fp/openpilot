@@ -402,6 +402,7 @@ void ui_update_frogpilot_params(UIState *s) {
   scene.frogs_go_moo = scene.frogpilot_toggles.value("frogs_go_moo").toBool();
   scene.full_map = scene.frogpilot_toggles.value("full_map").toBool();
   scene.gpu_metrics = scene.frogpilot_toggles.value("gpu_metrics").toBool();
+  scene.headless_mode = scene.frogpilot_toggles.value("headless_mode").toBool();
   scene.hide_alerts = scene.frogpilot_toggles.value("hide_alerts").toBool();
   scene.hide_lead_marker = scene.frogpilot_toggles.value("hide_lead_marker").toBool();
   scene.hide_map_icon = scene.frogpilot_toggles.value("hide_map_icon").toBool();
