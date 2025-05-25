@@ -851,9 +851,11 @@ void AnnotatedCameraWidget::paintEvent(QPaintEvent *event) {
 
   painter.setPen(Qt::NoPen);
 
-  if (s->scene.world_objects_visible) {
+  //if (s->scene.world_objects_visible) {
+  if (s->scene.world_objects_visible && !this->headLessMode) {
     update_model(s, model, sm["uiPlan"].getUiPlan());
-    if (!this->headLessMode) {drawLaneLines(painter, s, v_ego);}
+    drawLaneLines(painter, s, v_ego);
+    //if (!this->headLessMode) {drawLaneLines(painter, s, v_ego);}
 
     if (s->scene.longitudinal_control && sm.rcv_frame("radarState") > s->scene.started_frame && !s->scene.hide_lead_marker) {
       auto radar_state = sm["radarState"].getRadarState();
