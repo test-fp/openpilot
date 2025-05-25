@@ -554,9 +554,9 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
     } else {
       p.setFont(InterFont(176, QFont::Bold));
       if (this->headLessMode) {
-        drawText(p, rect().center().x() , 210 * 0.9, speedStr);
+        drawText(p, rect().center().x() * 1.5, 210 * 0.8, speedStr);
         p.setFont(InterFont(66));
-        drawText(p, rect().center().x() , 290 * 0.9, speedUnit, 200);
+        drawText(p, rect().center().x() * 1.5, 290 * 0.8, speedUnit, 200);
       } else {
         drawText(p, rect().center().x(), 210, speedStr);
         p.setFont(InterFont(66));
