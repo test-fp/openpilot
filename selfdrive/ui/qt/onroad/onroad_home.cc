@@ -77,7 +77,7 @@ void OnroadWindow::updateState(const UIState &s) {
   }
 
   // --- BEGIN NEW/MODIFIED LOGIC FOR headless_mode ---
-  // Check if the headless_mode state has changed
+  // Check if the headless_mode state has changed and Expand the TOP boarder
   if (s.scene.headless_mode != prev_headless_mode_state) { // prev_headless_mode_state needs to be a new member variable
     if (s.scene.headless_mode) {
       main_layout->setContentsMargins(UI_BORDER_SIZE, UI_BORDER_SIZE * 26, UI_BORDER_SIZE, UI_BORDER_SIZE);
@@ -204,7 +204,7 @@ void OnroadWindow::paintEvent(QPaintEvent *event) {
   // Access headless_mode state at construction time
   //UIState *currentState = uiState(); // Get the UIState instance
   if (s->scene.headless_mode) {
-    // Draw the top black rectangle, covering anything that might be there.
+    // Draw the top black rectangle to make the top area over the boarder black, covering anything that might be there.
     QRect screenRect = this->rect();
     p.fillRect(QRect(0, 0, screenRect.width(), UI_BORDER_SIZE * 25), Qt::black);
   }
