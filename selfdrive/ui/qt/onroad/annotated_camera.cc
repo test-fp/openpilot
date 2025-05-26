@@ -14,16 +14,16 @@ AnnotatedCameraWidget::AnnotatedCameraWidget(VisionStreamType type, QWidget* par
   pm = std::make_unique<PubMaster, const std::initializer_list<const char *>>({"uiDebug"});
 
   main_layout = new QVBoxLayout(this);
-  main_layout->setMargin(UI_BORDER_SIZE);
+  main_layout->setMargin(UI_BORDER_SIZE * 2);
   main_layout->setSpacing(0);
 
-  if (this->headLessMode) {
+  //if (this->headLessMode) {
   // == START MODIFICATION FOR APPROACH 2 ==
   // Create and add distance_btn here, BEFORE other widgets are added to main_layout
   //distance_btn = new DistanceButton(this);
   //main_layout->addWidget(distance_btn, 0, Qt::AlignTop | Qt::AlignLeft);
   // == END MODIFICATION FOR APPROACH 2 ==
-  }
+  //}
 
   QHBoxLayout *buttons_layout = new QHBoxLayout();
   buttons_layout->setSpacing(0);
@@ -35,13 +35,13 @@ AnnotatedCameraWidget::AnnotatedCameraWidget(VisionStreamType type, QWidget* par
   experimental_btn = new ExperimentalButton(this);
   buttons_layout->addWidget(experimental_btn);
 
-  if (this->headLessMode) {
+  //if (this->headLessMode) {
   // == START MODIFICATION FOR APPROACH 2 ==
   // Create and add distance_btn here, BEFORE other widgets are added to main_layout
-  //distance_btn = new DistanceButton(this);
-  //buttons_layout->addWidget(distance_btn);
+  distance_btn = new DistanceButton(this);
+  buttons_layout->addWidget(distance_btn);
   // == END MODIFICATION FOR APPROACH 2 ==
-  }
+  //}
 
   QVBoxLayout *top_right_layout = new QVBoxLayout();
   top_right_layout->setSpacing(0);
@@ -1162,15 +1162,15 @@ void AnnotatedCameraWidget::initializeFrogPilotWidgets() {
   //main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
   //main_layout->addItem(verticalSpacer);
 
-  if (this->headLessMode) {
+  //if (this->headLessMode) {
     //QSpacerItem *verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-    distance_btn = new DistanceButton(this);
-    main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
+    //distance_btn = new DistanceButton(this);
+    //main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
     //main_layout->addItem(verticalSpacer);
-  } else {
-    distance_btn = new DistanceButton(this);
-    main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
-  }
+  //} else {
+    //distance_btn = new DistanceButton(this);
+    //main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
+  //}
   //main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
 
   chillModeIcon = loadPixmap("../frogpilot/assets/other_images/chill_mode_icon.png", {img_size / 2, img_size / 2});
