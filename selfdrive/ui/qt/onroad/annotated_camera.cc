@@ -149,7 +149,7 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
 
   //////////////////////////////////////////////////////////////////////////////////////////Horizontle//////////////////
 
-  if (this->headLessMode) {
+  if (!this->headLessMode) {
     // ==============================================================
     // BEGIN Headless Mode: Side-by-Side MAX Speed and Speed Limit
     // ==============================================================
