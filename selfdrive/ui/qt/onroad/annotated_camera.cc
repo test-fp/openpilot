@@ -41,7 +41,7 @@ AnnotatedCameraWidget::AnnotatedCameraWidget(VisionStreamType type, QWidget* par
   // == START MODIFICATION FOR APPROACH 2 ==
   // Create and add distance_btn here, BEFORE other widgets are added to main_layout
   distance_btn = new DistanceButton(this);
-  buttons_layout->addWidget(distance_btn);
+  buttons_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
   // == END MODIFICATION FOR APPROACH 2 ==
   //}
 
