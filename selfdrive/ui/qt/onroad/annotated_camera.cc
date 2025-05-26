@@ -1141,11 +1141,12 @@ void AnnotatedCameraWidget::updateSignals() {
 }
 
 void AnnotatedCameraWidget::initializeFrogPilotWidgets() {
-  distance_btn = new DistanceButton(this);
+  //distance_btn = new DistanceButton(this);
   if (this->headLessMode) {
-    //main_layout->addWidget(distance_btn, 0, Qt::AlignTop | Qt::AlignLeft);
-    main_layout->insertWidget(0, distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
+    distance_btn = new DistanceButton(this);
+    main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
   } else {
+    distance_btn = new DistanceButton(this);
     main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
   }
   //main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
