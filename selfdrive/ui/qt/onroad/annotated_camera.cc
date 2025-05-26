@@ -1145,7 +1145,7 @@ void AnnotatedCameraWidget::initializeFrogPilotWidgets() {
   if (this->headLessMode) {
     main_layout->addWidget(distance_btn, 0, Qt::AlignVCenter | Qt::AlignLeft);
   } else {
-    main_layout->addWidget(distance_btn, 0, Qt::AlignVCenter | Qt::AlignLeft);
+    main_layout->addWidget(distance_btn, 0, Qt::AlignTop | Qt::AlignLeft);
   }
   //main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
 
