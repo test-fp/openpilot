@@ -20,8 +20,8 @@ AnnotatedCameraWidget::AnnotatedCameraWidget(VisionStreamType type, QWidget* par
   if (this->headLessMode) {
   // == START MODIFICATION FOR APPROACH 2 ==
   // Create and add distance_btn here, BEFORE other widgets are added to main_layout
-  distance_btn = new DistanceButton(this);
-  main_layout->addWidget(distance_btn, 0, Qt::AlignTop | Qt::AlignLeft);
+  //distance_btn = new DistanceButton(this);
+  //main_layout->addWidget(distance_btn, 0, Qt::AlignTop | Qt::AlignLeft);
   // == END MODIFICATION FOR APPROACH 2 ==
   }
 
@@ -34,6 +34,14 @@ AnnotatedCameraWidget::AnnotatedCameraWidget(VisionStreamType type, QWidget* par
 
   experimental_btn = new ExperimentalButton(this);
   buttons_layout->addWidget(experimental_btn);
+
+  if (this->headLessMode) {
+  // == START MODIFICATION FOR APPROACH 2 ==
+  // Create and add distance_btn here, BEFORE other widgets are added to main_layout
+  distance_btn = new DistanceButton(this);
+  buttons_layout->addWidget(distance_btn);
+  // == END MODIFICATION FOR APPROACH 2 ==
+  }
 
   QVBoxLayout *top_right_layout = new QVBoxLayout();
   top_right_layout->setSpacing(0);
