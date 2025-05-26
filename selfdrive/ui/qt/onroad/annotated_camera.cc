@@ -1164,11 +1164,12 @@ void AnnotatedCameraWidget::initializeFrogPilotWidgets() {
 
   if (this->headLessMode) {
     //QSpacerItem *verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-    //main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
-    //main_layout->addItem(verticalSpacer);
-  } else {
     distance_btn = new DistanceButton(this);
     main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
+    //main_layout->addItem(verticalSpacer);
+  } else {
+    //distance_btn = new DistanceButton(this);
+    //main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
   }
   //main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
 
@@ -1194,7 +1195,7 @@ void AnnotatedCameraWidget::initializeFrogPilotWidgets() {
   });
 
   QObject::connect(uiState(), &UIState::themeUpdated, this, &AnnotatedCameraWidget::updateSignals);
-  if (!this->headLessMode) {
+  if (this->headLessMode) {
     QObject::connect(uiState(), &UIState::themeUpdated, distance_btn, &DistanceButton::updateIcon);
   }
   QObject::connect(uiState(), &UIState::themeUpdated, experimental_btn, &ExperimentalButton::updateIcon);
