@@ -1167,8 +1167,8 @@ void AnnotatedCameraWidget::initializeFrogPilotWidgets() {
     //main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
     //main_layout->addItem(verticalSpacer);
   } else {
-    distance_btn = new DistanceButton(this);
-    main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
+    //distance_btn = new DistanceButton(this);
+    //main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
   }
   //main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
 
