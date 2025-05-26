@@ -287,7 +287,7 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
 
 
   //////////////////////////////////////////////////////////////////////////////////////////virtical//////////////////
-  if (!this->headLessMode) {
+  if (this->headLessMode) {
     QSize set_speed_size = default_size;
     if (is_metric || has_eu_speed_limit) set_speed_size.rwidth() = 200;
     if (has_us_speed_limit && speedLimitStr.size() >= 3) set_speed_size.rwidth() = 223;
