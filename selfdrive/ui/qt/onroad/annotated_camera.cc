@@ -1194,7 +1194,9 @@ void AnnotatedCameraWidget::initializeFrogPilotWidgets() {
   });
 
   QObject::connect(uiState(), &UIState::themeUpdated, this, &AnnotatedCameraWidget::updateSignals);
-  QObject::connect(uiState(), &UIState::themeUpdated, distance_btn, &DistanceButton::updateIcon);
+  if (!this->headLessMode) {
+    QObject::connect(uiState(), &UIState::themeUpdated, distance_btn, &DistanceButton::updateIcon);
+  }
   QObject::connect(uiState(), &UIState::themeUpdated, experimental_btn, &ExperimentalButton::updateIcon);
 }
 
