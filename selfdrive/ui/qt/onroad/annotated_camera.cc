@@ -17,11 +17,13 @@ AnnotatedCameraWidget::AnnotatedCameraWidget(VisionStreamType type, QWidget* par
   main_layout->setMargin(UI_BORDER_SIZE);
   main_layout->setSpacing(0);
 
+  if (this->headLessMode) {
   // == START MODIFICATION FOR APPROACH 2 ==
   // Create and add distance_btn here, BEFORE other widgets are added to main_layout
-  //distance_btn = new DistanceButton(this);
-  //main_layout->addWidget(distance_btn, 0, Qt::AlignTop | Qt::AlignLeft);
+  distance_btn = new DistanceButton(this);
+  main_layout->addWidget(distance_btn, 0, Qt::AlignTop | Qt::AlignLeft);
   // == END MODIFICATION FOR APPROACH 2 ==
+  }
 
   QHBoxLayout *buttons_layout = new QHBoxLayout();
   buttons_layout->setSpacing(0);
@@ -1147,17 +1149,17 @@ void AnnotatedCameraWidget::updateSignals() {
 }
 
 void AnnotatedCameraWidget::initializeFrogPilotWidgets() {
-  distance_btn = new DistanceButton(this);
+  //distance_btn = new DistanceButton(this);
   //QSpacerItem *verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
   //main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
   //main_layout->addItem(verticalSpacer);
 
   if (this->headLessMode) {
-    QSpacerItem *verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-    main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
-    main_layout->addItem(verticalSpacer);
+    //QSpacerItem *verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+    //main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
+    //main_layout->addItem(verticalSpacer);
   } else {
-    //distance_btn = new DistanceButton(this);
+    distance_btn = new DistanceButton(this);
     main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
   }
   //main_layout->addWidget(distance_btn, 0, Qt::AlignBottom | Qt::AlignLeft);
