@@ -840,7 +840,8 @@ void AnnotatedCameraWidget::drawDriverState(QPainter &painter, const UIState *s)
   if (rightHandDM && map_settings_btn->isEnabled() && !hideMapIcon) {
     x -= 250;
   } else if (onroadDistanceButton) {
-    x += 250;
+    //x += 250;
+    x += 25;
   }
   int y = height() - offset;
   dmIconPosition.setX(x);
