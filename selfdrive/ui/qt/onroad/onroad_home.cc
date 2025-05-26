@@ -80,7 +80,7 @@ void OnroadWindow::updateState(const UIState &s) {
   // Check if the headless_mode state has changed and Expand the TOP boarder
   if (s.scene.headless_mode != prev_headless_mode_state) { // prev_headless_mode_state needs to be a new member variable
     if (s.scene.headless_mode) {
-      main_layout->setContentsMargins(UI_BORDER_SIZE, UI_BORDER_SIZE * 26, UI_BORDER_SIZE, UI_BORDER_SIZE);
+      main_layout->setContentsMargins(UI_BORDER_SIZE, UI_BORDER_SIZE * 16, UI_BORDER_SIZE, UI_BORDER_SIZE);
     } else {
       main_layout->setMargin(UI_BORDER_SIZE);
     }
