@@ -206,7 +206,7 @@ void OnroadWindow::paintEvent(QPaintEvent *event) {
   if (s->scene.headless_mode) {
     // Draw the top black rectangle to make the top area over the boarder black, covering anything that might be there.
     QRect screenRect = this->rect();
-    p.fillRect(QRect(0, 0, screenRect.width(), UI_BORDER_SIZE * 15), Qt::black);
+    p.fillRect(QRect(0, 0, screenRect.width(), UI_BORDER_SIZE * 25), Qt::black);
   }
 
 
