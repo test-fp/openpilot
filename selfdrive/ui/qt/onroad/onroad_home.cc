@@ -290,7 +290,7 @@ void OnroadWindow::paintEvent(QPaintEvent *event) {
     logicsDisplayString += QString("Friction: %1 | ").arg(liveValid ? QString::number(friction, 'f', 2) : "Calculating...");
     logicsDisplayString += QString("Lateral Acceleration: %1").arg(liveValid ? QString::number(latAccel, 'f', 2) : "Calculating...");
   }
-  if (!logicsDisplayString.isEmpty() && !s->scene.headless_mode ) {
+  if (!logicsDisplayString.isEmpty() && !s->scene.headless_mode ) { // add headless here to remove tuning parameters from top of UI
     p.save();
 
     p.setFont(InterFont(28, QFont::DemiBold));
