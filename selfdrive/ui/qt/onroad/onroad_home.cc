@@ -15,7 +15,7 @@
 OnroadWindow::OnroadWindow(QWidget *parent) : QWidget(parent) {
   //QVBoxLayout *main_layout  = new QVBoxLayout(this);
   main_layout = new QVBoxLayout(this); 
-  main_layout->setMargin(UI_BORDER_SIZE * 0.5);
+  main_layout->setMargin(UI_BORDER_SIZE);
   QStackedLayout *stacked_layout = new QStackedLayout;
   stacked_layout->setStackingMode(QStackedLayout::StackAll);
   main_layout->addLayout(stacked_layout);
@@ -80,7 +80,7 @@ void OnroadWindow::updateState(const UIState &s) {
   // Check if the headless_mode state has changed and Expand the TOP boarder
   if (s.scene.headless_mode != prev_headless_mode_state) { // prev_headless_mode_state needs to be a new member variable
     if (s.scene.headless_mode) {
-      main_layout->setContentsMargins(UI_BORDER_SIZE/2, UI_BORDER_SIZE * 26, UI_BORDER_SIZE/2, UI_BORDER_SIZE/2);
+      main_layout->setContentsMargins(UI_BORDER_SIZE/2, (UI_BORDER_SIZE * 26) + UI_BORDER_SIZE/2 , UI_BORDER_SIZE/2, UI_BORDER_SIZE/2);
     } else {
       main_layout->setMargin(UI_BORDER_SIZE);
     }
