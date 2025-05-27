@@ -184,7 +184,7 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
     // else if (has_us_speed_limit && speedLimitStr.size() >=3 ) max_speed_headless_size.setWidth(223); // Might not be relevant if speedLimit is separate
 
     // Shift MAX speed to the right by 120  (it was 60 before)
-    max_speed_headless_rect.setRect(rect().width() * 0.45, common_y_headless, max_speed_headless_size.width(), max_speed_headless_size.height());
+    max_speed_headless_rect.setRect(rect().width() * 0.35, common_y_headless, max_speed_headless_size.width(), max_speed_headless_size.height());
 
     if (!hideMaxSpeed) { //
       // Draw background for MAX speed
@@ -227,7 +227,9 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
     if (has_us_speed_limit || has_eu_speed_limit) { //
       QRect speed_limit_headless_rect;
       QSize speed_limit_headless_size;
-      int speed_limit_x_headless = max_speed_headless_rect.right() + element_spacing_headless;
+      //int speed_limit_x_headless = max_speed_headless_rect.right() + max_speed_headless_rect.width()  + (rect().width() * 0.05); // + element_spacing_headless ;
+      int speed_limit_x_headless = max_speed_headless_rect.right() + (rect().width() * 0.05); // + element_spacing_headless ;
+
 
       if (has_us_speed_limit) { //
         // Tentative width, adjust as needed. For US, height is fixed.
