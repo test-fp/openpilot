@@ -236,7 +236,9 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
         int us_width = (speedLimitStr.size() >= 3) ? 200 : 175; // Example from pending limit drawing
         speed_limit_headless_size.setWidth(us_width);
         speed_limit_headless_size.setHeight(us_sign_height); //
-        speed_limit_headless_rect.setRect(speed_limit_x_headless, common_y_headless, speed_limit_headless_size.width(), speed_limit_headless_size.height());
+        //speed_limit_headless_rect.setRect(speed_limit_x_headless, common_y_headless, speed_limit_headless_size.width(), speed_limit_headless_size.height());
+        speed_limit_headless_rect.setRect(speed_limit_x_headless, common_y_headless, speed_limit_headless_size.width(), max_speed_headless_size.height());
+
 
         // Draw background for US speed limit sign
         p.setPen(Qt::NoPen); //
@@ -270,8 +272,8 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
         // For EU, size is somewhat fixed.
         speed_limit_headless_size.setWidth(eu_sign_size); // Use eu_sign_size for width too for a circle
         speed_limit_headless_size.setHeight(eu_sign_size); //
-        speed_limit_headless_rect.setRect(speed_limit_x_headless, common_y_headless + (max_speed_headless_size.height() - eu_sign_size)/2, // Vertically center with MAX speed box
-                                         speed_limit_headless_size.width(), speed_limit_headless_size.height());
+        //speed_limit_headless_rect.setRect(speed_limit_x_headless, common_y_headless + (max_speed_headless_size.height() - eu_sign_size)/2, speed_limit_headless_size.width(), speed_limit_headless_size.height()); // Vertically center with MAX speed box
+        speed_limit_headless_rect.setRect(speed_limit_x_headless, common_y_headless , speed_limit_headless_size.width(), max_speed_headless_size.height()); // Vertically center with MAX speed box
 
         // Draw background for EU speed limit sign
         p.setPen(Qt::NoPen); //
