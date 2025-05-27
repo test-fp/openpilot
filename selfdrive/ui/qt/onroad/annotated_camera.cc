@@ -174,7 +174,7 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
     p.save(); // Save painter state for headless specific drawing
 
     const int common_y_headless = 45; // Common top Y for elements in headless
-    const int element_spacing_headless = 15; // Horizontal spacing between elements
+    //const int element_spacing_headless = 15; // Horizontal spacing between elements
 
     // --- 1. MAX Speed Element (Left Side) ---
     QRect max_speed_headless_rect;
