@@ -230,7 +230,7 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
       QRect speed_limit_headless_rect;
       QSize speed_limit_headless_size;
       //int speed_limit_x_headless = max_speed_headless_rect.right() + max_speed_headless_rect.width()  + (rect().width() * 0.05); // + element_spacing_headless ;
-      int speed_limit_x_headless = (rect().width() * 0.45); // + element_spacing_headless ;
+      int speed_limit_x_headless = (rect().width() * 0.55); // + element_spacing_headless ;
 
 
       if (has_us_speed_limit) { //
