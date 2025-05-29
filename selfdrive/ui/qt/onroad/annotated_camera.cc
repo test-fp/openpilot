@@ -184,7 +184,9 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
     // else if (has_us_speed_limit && speedLimitStr.size() >=3 ) max_speed_headless_size.setWidth(223); // Might not be relevant if speedLimit is separate
 
     // Shift MAX speed to the right by 120  (it was 60 before)
-    max_speed_headless_rect.setRect((rect().width() - screenRecorder->geometry().left()) * 0.4, common_y_headless, max_speed_headless_size.width(), max_speed_headless_size.height());
+    //max_speed_headless_rect.setRect((rect().width() - screenRecorder->geometry().left()) * 0.4, common_y_headless, max_speed_headless_size.width(), max_speed_headless_size.height());
+    max_speed_headless_rect.setRect(rect().width() * 0.4, common_y_headless, max_speed_headless_size.width(), max_speed_headless_size.height());
+
 
     if (!hideMaxSpeed) { //
       // Draw background for MAX speed
@@ -228,7 +230,7 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
       QRect speed_limit_headless_rect;
       QSize speed_limit_headless_size;
       //int speed_limit_x_headless = max_speed_headless_rect.right() + max_speed_headless_rect.width()  + (rect().width() * 0.05); // + element_spacing_headless ;
-      int speed_limit_x_headless = ((rect().width() - screenRecorder->geometry().left()) * 0.05); // + element_spacing_headless ;
+      int speed_limit_x_headless = (rect().width() * 0.053); // + element_spacing_headless ;
 
 
       if (has_us_speed_limit) { //
@@ -579,9 +581,9 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
       p.setFont(InterFont(176, QFont::Bold));
       if (this->headLessMode) {
         //drawText(p, rect().center().x() * 1.5, 210 * 0.8, speedStr);
-        drawText(p, (rect().width() - screenRecorder->geometry().left()) * 0.3, 210 * 0.9, speedStr);
+        drawText(p,rect().width() * 0.3, 210 * 0.9, speedStr);
         p.setFont(InterFont(66));
-        drawText(p, (rect().width() - screenRecorder->geometry().left()) * 0.3, 290 * 0.9, speedUnit, 200);
+        drawText(p, rect().width() * 0.3, 290 * 0.9, speedUnit, 200);
         //drawText(p, rect().center().x() * 1.5, 290 * 0.8, speedUnit, 200);
       } else {
         drawText(p, rect().center().x(), 210, speedStr);
