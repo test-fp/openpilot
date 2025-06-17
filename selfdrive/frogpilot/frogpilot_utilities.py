@@ -146,20 +146,15 @@ def is_url_pingable(url, timeout=10):
     print(f"Unexpected error while pinging {url}: {error}")
   return False
 
+
 def lock_doors(lock_doors_timer, sm):
   #wait_for_no_driver(sm, lock_doors_timer)
   wait_for_no_driver_Q(sm, lock_doors_timer)
 
-  #panda = Panda()
-  #panda.set_safety_mode(panda.SAFETY_TOYOTA)
-  #panda.can_send(0x750, LOCK_CMD, 0)
-  #panda.send_heartbeat()
   panda = Panda()
   panda.set_safety_mode(panda.SAFETY_ALLOUTPUT)
   panda.can_send(0x750, LOCK_CMD, 0)
   time.sleep(0.125)  # 150 millisecond delay
-  #panda.set_safety_mode(panda.SAFETY_ALLOUTPUT)
-  #panda.can_send(0x750, MIRR_FOLD_L, 0)
 
   if params.get_bool("FoldMirrors"):
     panda.set_safety_mode(panda.SAFETY_ALLOUTPUT)
@@ -180,8 +175,15 @@ def lock_doors(lock_doors_timer, sm):
     time.sleep(0.125)  # 150 millisecond delay
     panda.set_safety_mode(panda.SAFETY_ALLOUTPUT)
     panda.can_send(0x750, WINDOW_CLOSE_FR, 0)
+    time.sleep(0.125)  # 150 millisecond delay
+
+  panda.set_safety_mode(panda.SAFETY_ALLOUTPUT)
+  panda.can_send(0x750, LOCK_CMD, 0)
+  time.sleep(0.125)  # 150 millisecond delay
+
   panda.set_safety_mode(panda.SAFETY_TOYOTA)
   panda.send_heartbeat()
+
 
 def restart_processes(sm):
   while running_threads.get("lock_doors", threading.Thread()).is_alive():
